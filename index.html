@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0e6b60" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="잉크" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="icon" href="./icon-192.png" />
+    <title>잉크</title>
+    <script type="module" crossorigin src="./assets/index-DkuOfntU.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DcxC3Bbz.css">
+  </head>
+  <body class="web">
+    <div id="app" data-screen="list">
+      <header class="bar">
+        <button type="button" id="back" class="icon" aria-label="목록으로" hidden>‹</button>
+        <h1 id="title">잉크</h1>
+        <button type="button" id="sync" class="sync" data-kind="off" aria-label="지금 동기화">
+          <span class="dot"></span><span id="sync-text">연결 안 됨</span>
+        </button>
+        <button type="button" id="settings" class="icon" aria-label="설정">⋯</button>
+      </header>
+
+      <main id="screen-list" class="screen">
+        <div class="searchrow">
+          <input id="q" type="search" placeholder="메모 검색" autocomplete="off" spellcheck="false" />
+        </div>
+        <nav id="scopes" class="scopes" aria-label="분류"></nav>
+        <nav id="subscopes" class="scopes sub" aria-label="하위 분류" hidden></nav>
+        <div id="list" class="list"></div>
+        <button type="button" id="fab" class="fab" aria-label="새 메모">+</button>
+      </main>
+
+      <main id="screen-edit" class="screen" hidden>
+        <div id="chips" class="chips"></div>
+        <div id="editor" class="editor-host"></div>
+      </main>
+
+      <main id="screen-setup" class="screen setup" hidden>
+        <section id="setup-new">
+          <h2>PC 와 연결하기</h2>
+          <ol class="steps">
+            <li>PC 잉크 앱에서 <b>동기화</b> 버튼 → <b>QR 보기</b></li>
+            <li>아이폰 <b>기본 카메라</b>로 QR 을 비추고, 뜨는 글자를 눌러 <b>복사</b></li>
+            <li>아래 칸에 <b>붙여넣기</b> 하고 <b>연결</b></li>
+          </ol>
+          <textarea id="pair-text" rows="4" placeholder="여기에 붙여넣기" autocomplete="off" spellcheck="false"></textarea>
+
+          <details class="manual">
+            <summary>직접 입력하기</summary>
+            <label>GitHub 사용자 이름<input id="f-owner" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" /></label>
+            <label>메모 저장소 이름<input id="f-repo" type="text" value="ink-notes" autocomplete="off" autocapitalize="off" spellcheck="false" /></label>
+            <label>토큰<input id="f-token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" /></label>
+          </details>
+
+          <button type="button" id="connect" class="primary">연결</button>
+        </section>
+
+        <section id="setup-done" hidden>
+          <h2>연결됨</h2>
+          <p id="setup-where" class="where"></p>
+          <button type="button" id="sync-now" class="primary">지금 동기화</button>
+          <button type="button" id="disconnect" class="danger">이 아이폰에서 연결 해제</button>
+          <p class="fine">연결을 해제해도 GitHub 과 PC 의 메모는 그대로입니다.</p>
+        </section>
+
+        <p id="setup-msg" class="msg" role="status"></p>
+      </main>
+    </div>
+
+    <div id="sheet" class="sheet-backdrop" hidden>
+      <div class="sheet" role="dialog" aria-label="분류하기">
+        <input id="sheet-q" type="text" placeholder="분류 이름 — 초성도 됩니다 (ㅇㅁ)" autocomplete="off" spellcheck="false" />
+        <label class="keep"><input id="sheet-keep" type="checkbox" /> 지금 분류는 두고 하나 더 추가</label>
+        <ul id="sheet-list"></ul>
+      </div>
+    </div>
+
+  </body>
+</html>
