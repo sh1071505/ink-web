@@ -11,8 +11,8 @@
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="icon" href="./icon-192.png" />
     <title>잉크</title>
-    <script type="module" crossorigin src="./assets/index-DkuOfntU.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DcxC3Bbz.css">
+    <script type="module" crossorigin src="./assets/index-DJLsbKUa.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BDvwxp_X.css">
   </head>
   <body class="web">
     <div id="app" data-screen="list">
@@ -37,10 +37,20 @@
 
       <main id="screen-edit" class="screen" hidden>
         <div id="chips" class="chips"></div>
+        <div id="tools" class="ed-tools"></div>
         <div id="editor" class="editor-host"></div>
       </main>
 
       <main id="screen-setup" class="screen setup" hidden>
+        <div id="storage-warning" class="warning" hidden>
+          <h3>이 브라우저는 저장을 못 합니다</h3>
+          <p>연결해도 앱을 닫으면 잊어버립니다. 둘 중 하나를 고쳐주세요.</p>
+          <ul>
+            <li><b>개인정보 보호 모드</b>로 열려 있는지 — Safari 탭 버튼을 누르고 <b>시작 페이지</b>로 바꾼 뒤 다시 열어주세요.</li>
+            <li><b>설정 → Safari → 모든 쿠키 차단</b>이 켜져 있는지 — 꺼주세요.</li>
+          </ul>
+        </div>
+
         <section id="setup-new">
           <h2>PC 와 연결하기</h2>
           <ol class="steps">
@@ -69,7 +79,24 @@
         </section>
 
         <p id="setup-msg" class="msg" role="status"></p>
+        <p class="fine">지금 보고 있는 주소: <span id="site"></span></p>
       </main>
+    </div>
+
+    <!-- 날짜 고르기. 아이폰 기본 날짜 선택기를 그대로 쓴다 — 배울 것이 없다. -->
+    <div id="date-sheet" class="sheet-backdrop" hidden>
+      <div class="sheet dates" role="dialog" aria-label="날짜">
+        <label class="drow">날짜<input id="d-date" type="date" /></label>
+        <label class="keep"><input id="d-allday" type="checkbox" checked /> 종일</label>
+        <label class="drow">시작<input id="d-start" type="time" /></label>
+        <label class="drow">끝<input id="d-end" type="time" /></label>
+        <label class="drow">끝나는 날<input id="d-until" type="date" /></label>
+        <p id="d-preview" class="fine"></p>
+        <div class="drow buttons">
+          <button type="button" id="d-clear" class="danger">날짜 빼기</button>
+          <button type="button" id="d-apply" class="primary">적용</button>
+        </div>
+      </div>
     </div>
 
     <div id="sheet" class="sheet-backdrop" hidden>
